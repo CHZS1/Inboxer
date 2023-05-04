@@ -1,0 +1,447 @@
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;   
+}
+
+@font-face { 
+    font-family: "SegoeUI"; 
+    src: url("../fonts/SegoeUI.woff"); 
+    font-style: normal; 
+    font-weight: 400; 
+} 
+
+@font-face { 
+    font-family: "SegoeUI-Bold"; 
+    src: url("../fonts/SegoeUI-Bold.woff"); 
+    font-style: normal; 
+    font-weight: 700; 
+} 
+
+$padding: 190px;
+$dark: #131316;
+$white: #ffffff;
+$red: #FF0000;
+
+a:active, 
+a:hover,  
+a {
+    text-decoration: none;
+    color: $white;
+    cursor: pointer;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+%btn {
+    width: 180px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    padding: 6px;
+    cursor: pointer;
+
+    font-family: "SegoeUI";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.06em;
+    text-align: center;
+
+    color: $white;
+    background: linear-gradient(50deg, rgba(128, 26, 179, .6) 0, rgba(76, 76, 255, .7) 100%);
+}
+
+%title {
+    margin-bottom: 20px;
+    font-family: "SegoeUI";
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: $white;
+}
+
+%old {
+    display: inline-block;
+    font-family: "SegoeUI";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    text-decoration: line-through;
+    color: #D9D9D9;
+}
+
+body {
+    font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+    background-color: $dark;
+    background-image: url(../images/bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    @media(min-width: 1669px) {
+        background-size: cover;
+    }
+}
+.container {
+    display: flex;
+    margin: 0 auto;
+   
+    width: calc(100% - ($padding * 2));
+    @media(min-width: 1001px) {
+        width: 600px;
+    }
+}
+
+.flex {
+    display: flex;
+}
+header {
+    margin-bottom: 40px;
+    nav {
+        margin: 0 auto;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .button {
+        @extend %btn;
+        
+    }
+    
+}
+
+.hero {
+    margin-bottom: 50px;
+    .hero__wraper {
+        flex-direction: column;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .hero__title {
+        @extend %title;
+    }
+
+    .hero__list {
+        display: flex; 
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .hero__card {
+        display: flex;
+        width: calc((100% - 20px) / 3);
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 10px;
+        padding-top: 40px;
+        flex-direction: column;
+        align-items: center;
+        background-color: $white;
+       
+    }
+
+    .hero__card:nth-child(n+4) {
+        width: calc((100% - 10px) / 2);
+    }
+
+    .card-image-1 {
+        width: 200px;
+        height: 100px;
+        background-image: url(../images/ship--6.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .card-image-2 {
+        @extend .card-image-1;
+        background-image: url(../images/ship--5.png);
+    }
+
+    .card-image-3 {
+        @extend .card-image-1;
+        transform: translateX(30px);
+        background-image: url(../images/ship--3.png);
+    }
+
+    .card-image-4 { 
+        @extend .card-image-1;             
+        width: 300px;
+        height: 180px;
+        transform: translateY(-20px);
+        background-image: url(../images/ship--1.png);
+    }
+
+    .card-image-5 { 
+        @extend .card-image-4; 
+        transform: translateY(-30px);            
+        background-image: url(../images/ship--4.png);
+    }
+
+    .card__descr {
+        font-family: "SegoeUI";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: center;
+    }
+
+    .card__price {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .old-price {
+       @extend %old;
+    }
+
+    .new-price {
+        @extend .old-price;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        letter-spacing: 0em;
+        color: #131316;
+        text-decoration: none;
+    }
+
+    .order {
+        @extend %btn;
+        width: 100%;
+    }
+}
+
+.main-product {
+    margin-bottom: 60px;
+    .main-product__wraper {
+        flex-direction: column;   
+    }
+    .main-product__card {
+        border-radius: 5px;
+        background-color: $white;
+    }
+    .main-product__title {
+        @extend %title;
+    }
+
+    .card-info__item {
+        width: 50%;
+    }
+
+    .card-info__item:last-child {
+        padding: 20px 0 20px 10px;
+    }
+
+    .card-info__image {
+        width: 305px;
+        height: 305px;
+        background-image: url(../images/ship--3.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .rating {
+        margin-bottom: 10px;
+    }
+
+    .rating-item {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url(../images/spaceship\ 1.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .rating-item:last-child {
+        opacity: .3;
+    }
+
+    .card-title {
+        margin-bottom: 5px;
+        font-family: "SegoeUI";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: $dark;
+    }
+
+    .card-descr {
+        @extend .card-title;
+        margin-bottom: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 17px;
+    }
+
+    .card-price {
+        margin-bottom: 20px;
+        justify-content: space-evenly;
+    }
+
+    .old-price {
+        @extend %old;
+    }
+
+    .new-price {
+        font-family: "SegoeUI";
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .sale {
+        @extend .new-price;
+        border-radius: 5px;
+        padding: 2px 8px;
+        color: $white;
+        background-color: $red;
+    }
+
+    .promo {
+        display: flex;
+        width: 100%;
+        padding-right: 25px;
+        justify-content: space-between;
+    }
+
+    .promo__text {
+        font-family: "SegoeUI";
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .money {
+        font-family: "SegoeUI";
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0em;
+        text-align: right;
+    }
+
+    .money-red {
+        @extend .money;
+        font-weight: 700;
+        color: $red;
+    }
+
+    .card-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .transp {
+        @extend %btn;
+        border: none;
+        outline: 1px dotted $dark;
+        width: 280px;
+        height: 60px;
+        margin-bottom: 10px;
+        color: $dark;
+        background: transparent;
+
+        font-family: "SegoeUI";
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 0.06em;
+        text-align: center;
+    }
+
+    .order {
+        @extend %btn;
+        width: 280px;
+        height: 60px;
+        margin-bottom: 35px;
+    }
+}
+
+.footer {
+
+    .footer__wraper {
+        margin: 0 auto;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__title {
+        margin-bottom: 20px;
+        font-family: "SegoeUI";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: $white;
+    }
+
+    .footer__social {
+        margin-bottom: 30px;
+    }
+
+    .social-link:not(:last-child) {
+        margin-right: 20px;
+    }
+    .social-link > img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .footer__bottom {
+        width: 100%;
+        margin-bottom: 30px;
+        justify-content: space-between;
+    }
+
+    .contacts {
+        flex-direction: column;
+    }
+
+    .phone {
+        font-family: "SegoeUI";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: $white;
+    }
+
+    .mail {
+        @extend .phone;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21px;
+    }
+
+    .text {
+        @extend .phone;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 17px;
+        opacity: .5;
+    }
+
+   
+}
